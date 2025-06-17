@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formula 1 | Лучшие команды 2024</title>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Jura:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Jura', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Russo One', sans-serif;
+    }
+
+    .header {
+      background-color: #1e1e1e;
+      color: #d4af37;
+      padding: 2rem;
+      text-align: center;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      background-color: #1e1e1e;
+      padding: 1rem;
+      gap: 2rem;
+    }
+    .nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .breadcrumbs {
+      padding: 1rem;
+      background-color: #ffffff;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .breadcrumbs a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    .content {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .team-profile {
+      display: flex;
+      background: white;
+      margin-bottom: 2rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+   .team-photo-container {
+      width: 300px;
+      height: 300px;
+      flex-shrink: 0;
+      overflow: hidden;
+      background: #f5f5f5;
+      margin-left: 35px;
+      margin-top: 40px;
+      border-radius: 4px;
+      position: relative; 
+      margin-bottom: 270px; 
+    }
+
+    .team-photo-bottom {
+      position: absolute;
+      bottom: -270px; 
+      left: 0;
+      width: 610px;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .team-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .team-info {
+      padding: 2rem;
+      flex: 1;
+    }
+    .team-info h2 {
+      color: #1e1e1e;
+      margin-top: 0;
+      border-bottom: 2px solid #d4af37;
+      padding-bottom: 0.5rem;
+    }
+
+    .team-details {
+      padding: 2rem;
+      flex: 1;
+      border-left: 1px solid #eee;
+    }
+    .team-details h3 {
+      color: #d4af37;
+      margin-top: 0;
+    }
+
+    .stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-item h3 {
+      color: #d4af37;
+      margin: 0;
+    }
+
+    .drivers {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .driver {
+      text-align: center;
+    }
+    .driver img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .newsletter {
+      background: #1e1e1e;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 3rem;
+      border-radius: 4px;
+    }
+    .newsletter h2 {
+      color: #d4af37;
+    }
+    .newsletter input {
+      padding: 0.8rem;
+      width: 300px;
+      border: none;
+      margin-right: 1rem;
+      border-radius: 4px;
+    }
+    .newsletter button {
+      background: #d4af37;
+      color: #1e1e1e;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+    .newsletter button:hover {
+      background: #c9a227;
+    }
+    .privacy-text {
+      font-size: 0.8rem;
+      margin-top: 1rem;
+      color: #aaa;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer {
+      background: #1e1e1e;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-links a:hover {
+      color: #d4af37;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+    .social-links a:hover {
+      color: #d4af37;
+    }
+
+    @media (max-width: 768px) {
+      .team-profile {
+        flex-direction: column;
+      }
+      .team-photo-container {
+        width: 100%;
+        height: 300px;
+      }
+      .team-details {
+        border-left: none;
+        border-top: 1px solid #eee;
+      }
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .newsletter input {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+  <a href="index.html" style="text-decoration: none; color: inherit;">
+    <h1>FORMULA 1</h1>
+  </a>
+</header>
+  
+  <nav class="nav">
+    <a href="index.html">Главная</a>
+    <a href="drivers.html">Гонщики</a>
+    <a href="teams.html">Команды</a>
+    <a href="circuits.html">Трассы</a>
+  </nav>
+
+  <div class="breadcrumbs">
+    <a href="index.html">Главная</a> > <a href="teams.html">Команды</a> > <span>2024</span>
+  </div>
+
+  <main class="content">
+
+        <!-- 1. Профиль команды: McLaren -->
+    <div class="team-profile">
+      <div class="team-photo-container">
+        <img src="images/mclaren/mclaren.jpeg" alt="Red Bull Racing" class="team-photo">
+      </div>
+      <div class="team-info">
+        <h2>McLaren</h2>
+        <p><strong>База:</strong> Уокинг, Великобритания</p>
+        <p><strong>Руководитель:</strong> Андреа Стелла</p>
+        <p><strong>Двигатель:</strong> Mercedes</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>9</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>194</p>
+          </div>
+          <div class="stat-item">
+            <h3>Поулы</h3>
+            <p>534</p>
+          </div>
+        </div>
+      </div>
+      <div class="team-details">
+        <h3>Информация о команде</h3>
+        <p>McLaren F1 Team – британская команда, основанная легендарным гонщиком Брюсом Маклареном и прославившаяся инновационными инженерными решениями с момента дебюта в чемпионате. Команда не раз демонстрировала умение сочетать опыт и свежие технологии, что позволило ей завоевать престижные титулы. Современное развитие коллектива обеспечивается за счёт работ по оптимизации аэродинамики, использования передовых материалов и поддержкой талантливых пилотов, таких как Ландо Норрис и Оскар Пиастри. Штаб-квартира находится в Уокинге, Великобритания.</p>
+        <h3>Гонщики 2024</h3>
+        <div class="drivers">
+          <div class="driver">
+            <img src="images/mclaren/norris-mclaren.jpeg" alt="Ландо Норрис">
+            <p>Ландо Норрис</p>
+          </div>
+          <div class="driver">
+            <img src="images/mclaren/piastri-mclaren.jpeg" alt="Оскар Пиастри">
+            <p>Оскар Пиастри</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Профиль команды: Ferrari -->
+    <div class="team-profile">
+      <div class="team-photo-container">
+        <img src="images/ferrari/ferrari.jpeg" alt="Red Bull Racing" class="team-photo">
+      </div>
+      <div class="team-info">
+        <h2>Ferrari</h2>
+        <p><strong>База:</strong> Маранелло, Италия</p>
+        <p><strong>Руководитель:</strong> Фредерик Вассёр</p>
+        <p><strong>Двигатель:</strong> Ferrari</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>16</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>248</p>
+          </div>
+          <div class="stat-item">
+            <h3>Поулы</h3>
+            <p>830</p>
+          </div>
+        </div>
+      </div>
+      <div class="team-details">
+        <h3>Информация о команде</h3>
+        <p>Scuderia Ferrari – итальянская команда Формулы-1, являющаяся иконой автоспорта с богатейшей историей, начавшая своё участие в чемпионате ещё в 1950 году. Команда накопила бесчисленное число побед, воплощая сочетание традиционных инженерных наработок с современными инновациями. Ferrari прославилась как благодаря легендарным фигурам вроде Михаэля Шумахера, так и за счёт сегодняшних звёзд, таких как Чарльз Леклер и Карлос Сайнс. Команда славится страстью к совершенству, динамичным дизайном болида и стратегическим мышлением. Штаб-квартира находится в Маранелло, Италия.</p>
+        <h3>Гонщики 2024</h3>
+        <div class="drivers">
+          <div class="driver">
+            <img src="images/ferrari/leclerc-ferrari.jpeg" alt="Шарль Леклер">
+            <p>Шарль Леклер</p>
+          </div>
+          <div class="driver">
+            <img src="images/ferrari/sainz-ferrari.jpg" alt="Карлос Сайнз">
+            <p>Карлос Сайнз</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <!-- 3. Профиль команды: Red Bull Racing -->
+    <div class="team-profile">
+      <div class="team-photo-container">
+            <img src="images/red-bull/oracle-red-bull-racing.jpeg" alt="Red Bull Racing" class="team-photo">
+      </div>
+      <div class="team-info">
+        <h2>Red Bull Racing</h2>
+        <p><strong>База:</strong> Милтон-Кинс, Великобритания</p>
+        <p><strong>Руководитель:</strong> Кристиан Хорнер</p>
+        <p><strong>Двигатель:</strong> Honda RBPT</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>6</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>123</p>
+          </div>
+          <div class="stat-item">
+            <h3>Поулы</h3>
+            <p>285</p>
+          </div>
+        </div>
+      </div>
+      <div class="team-details">
+        <h3>Информация о команде</h3>
+        <p>Red Bull Racing - австрийская команда Формулы-1, принадлежащая компании Red Bull GmbH. Дебютировала в 2005 году после покупки команды Jaguar. Команда доминировала в чемпионате с 2010 по 2013 год с Себастьяном Феттелем, а затем вернула лидерство в 2021-2023 годах с Максом Ферстаппеном.</p>
+        <p>Команда известна своими инновационными техническими решениями, агрессивной аэродинамикой и молодыми талантливыми гонщиками. Штаб-квартира расположена в Милтон-Кинс, Великобритания.</p>
+        <h3>Гонщики 2024</h3>
+        <div class="drivers">
+          <div class="driver">
+            <img src="images/red-bull/verstappen-red-bull.jpeg" alt="Макс Ферстаппен">
+            <p>Макс Ферстаппен</p>
+          </div>
+          <div class="driver">
+            <img src="images/red-bull/perez-red-bull.jpeg" alt="Серхио Перес">
+            <p>Серхио Перес</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Профиль команды: Mercedes -->
+    <div class="team-profile">
+      <div class="team-photo-container">
+        <img src="images/mercedes/mercedes.jpeg" alt="Red Bull Racing" class="team-photo">
+      </div>
+      <div class="team-info">
+        <h2>Mercedes</h2>
+        <p><strong>База:</strong> Брэкли, Великобритания</p>
+        <p><strong>Руководитель:</strong> Тото Вольфф</p>
+        <p><strong>Двигатель:</strong> Mercedes</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>8</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>124</p>
+          </div>
+          <div class="stat-item">
+            <h3>Поулы</h3>
+            <p>264</p>
+          </div>
+        </div>
+      </div>
+      <div class="team-details">
+        <h3>Информация о команде</h3>
+        <p>Mercedes‑AMG Petronas – британская команда Формулы‑1, входящая в состав концерна Mercedes‑Benz. Дебютировав в эру гибридных технологий, команда быстро утвердилась в рядах лидеров чемпионата, завоевав ряд титулов благодаря передовым инженерным решениям и мастерству пилотов. Под руководством Тото Вольффа Mercedes известна своей точностью, стабильностью и постоянным стремлением к совершенствованию, чему способствуют современные технологии и тактические новшества. Штаб-квартира расположена в Бракли, Великобритания.</p>
+        <h3>Гонщики 2024</h3>
+        <div class="drivers">
+          <div class="driver">
+            <img src="images/mercedes/lewis-mercedes.jpeg" alt="Льюис Хемилтон">
+            <p>Льюис Хемилтон</p>
+          </div>
+          <div class="driver">
+            <img src="images/mercedes/russell-mercedes.jpg" alt="Джордж Рассел">
+            <p>Джордж Рассел</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Профиль команды: Aston Martin -->
+    <div class="team-profile">
+      <div class="team-photo-container">
+        <img src="images/aston-martin/aston.jpeg" alt="Red Bull Racing" class="team-photo">
+      </div>
+      <div class="team-info">
+        <h2>Aston Martin</h2>
+        <p><strong>База:</strong> Сильверстоун, Великобритания</p>
+        <p><strong>Руководитель:</strong> Майк Крак</p>
+        <p><strong>Двигатель:</strong> Mercedes</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Поулы</h3>
+            <p>2</p>
+          </div>
+        </div>
+      </div>
+      <div class="team-details">
+        <h3>Информация о команде</h3>
+        <p>Aston Martin Cognizant F1 Team – британская команда, вдохновлённая престижным брендом Aston Martin и, преобразовавшись после ребрендинга Racing Point, уверенно вступила в новую эру автоспорта. Команда демонстрирует смелый, амбициозный подход, сочетая роскошный дизайн с передовыми инженерными технологиями. Опыт и талант пилотов, а также продуманные тактические решения, позволяют коллективу стремительно расти и занимать высокие позиции в чемпионате. Штаб-квартира расположена в Силверстоуне, Великобритания.</p>
+        <h3>Гонщики 2024</h3>
+        <div class="drivers">
+          <div class="driver">
+            <img src="images/aston-martin/fernando-aston.jpeg" alt="Фернандо Алонсо">
+            <p>Фернандо Алонсо</p>
+          </div>
+          <div class="driver">
+            <img src="images/aston-martin/stroll-aston.jpg" alt="Лэнс Стролл">
+            <p>Лэнс Стролл</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+        <!-- 6. Профиль команды: Alpine -->
+    <div class="team-profile">
+      <div class="team-photo-container">
+        <img src="images/alpine/alpine.jpeg" alt="Red Bull Racing" class="team-photo">
+      </div>
+      <div class="team-info">
+        <h2>Alpine</h2>
+        <p><strong>База:</strong> Энстоун, Великобритания</p>
+        <p><strong>Руководитель:</strong> Брюно Фамен</p>
+        <p><strong>Двигатель:</strong> Renault</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>1</p>
+          </div>
+          <div class="stat-item">
+            <h3>Поулы</h3>
+            <p>6</p>
+          </div>
+        </div>
+      </div>
+      <div class="team-details">
+        <h3>Информация о команде</h3>
+        <p>BWT Alpine F1 Team – французская команда, являющаяся преемником легендарного Renault в Формуле‑1. Дебютировавшая в современном облике, Alpine совмещает традиционные инженерные решения с современными технологиями, что позволяет ей активно бороться за каждую позицию на трассе. Коллектив делает упор на развитие молодых талантов, таких как Пьер Гасли и Эстебан Окон, и постоянно совершенствует аэродинамику и мощность двигателя. Штаб-квартира расположена в Энстоне, Великобритания.</p>
+        <h3>Гонщики 2024</h3>
+        <div class="drivers">
+          <div class="driver">
+            <img src="images/alpine/pierre-alpine.jpeg" alt="Пьер Гасли">
+            <p>Пьер Гасли</p>
+          </div>
+          <div class="driver">
+            <img src="images/alpine/ocon-alpine.jpeg" alt="Эстебан Окон">
+            <p>Эстебан Окон</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Профиль команды: Haas -->
+    <div class="team-profile">
+      <div class="team-photo-container">
+        <img src="images/haas/haas.jpeg" alt="Red Bull Racing" class="team-photo">
+      </div>
+      <div class="team-info">
+        <h2>Haas</h2>
+        <p><strong>База:</strong> Каннаполис, США</p>
+        <p><strong>Руководитель:</strong> Айо Комацу</p>
+        <p><strong>Двигатель:</strong> Ferrari</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Поулы</h3>
+            <p>1</p>
+          </div>
+        </div>
+      </div>
+      <div class="team-details">
+        <h3>Информация о команде</h3>
+        <p>Haas F1 Team – американская команда Формулы‑1, известная своим динамичным подходом и прагматичным использованием современных технологий. Дебютировавшая в 2016 году, Haas быстро зарекомендовала себя как коллектив, способный оперативно адаптироваться к высоким требованиям чемпионата за счёт тесного сотрудничества с ведущими европейскими партнёрами. Команда делает ставку на эффективность инженерных решений и постоянное внедрение инноваций в процессы разработки болида. Штаб-квартира расположена в Каннаполисе, США.</p>
+        <h3>Гонщики 2024</h3>
+        <div class="drivers">
+          <div class="driver">
+            <img src="images/haas/kevin-haas.jpeg" alt="Кевин Магнуссен">
+            <p>Кевин Магнуссен</p>
+          </div>
+          <div class="driver">
+            <img src="images/haas/hulk-haas.jpeg" alt="Нико Хюлькенберг">
+            <p>Нико Хюлькенберг</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. Профиль команды: Visa -->
+    <div class="team-profile">
+      <div class="team-photo-container">
+        <img src="images/visa/visa.jpeg" alt="Red Bull Racing" class="team-photo">
+      </div>
+      <div class="team-info">
+        <h2>Visa Cash App RB</h2>
+        <p><strong>База:</strong> Фаэнца, Италия</p>
+        <p><strong>Руководитель:</strong> Петер Байер</p>
+        <p><strong>Двигатель:</strong> Honda RBPT</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Поулы</h3>
+            <p>0</p>
+          </div>
+        </div>
+      </div>
+      <div class="team-details">
+        <h3>Информация о команде</h3>
+        <p>Visa Cash App RB Formula One Team – итальянская команда, выступающая в роли младшего коллектива Red Bull Racing и демонстрирующая акцент на развитие молодых и перспективных гонщиков. Дебютировавшая под именем Toro Rosso, команда прошла через этап ребрендинга, подчеркнув свою индивидуальность и стремление к техническим инновациям. AlphaTauri сочетает в себе современные инженерные решения с динамичным стилем и смелой тактикой, что позволяет ей уверенно бороться в условиях жесткой конкуренции. Штаб-квартира расположена в Италии с рабочими базами в Великобритании.</p>
+        <h3>Гонщики 2024</h3>
+        <div class="drivers">
+          <div class="driver">
+            <img src="images/visa/yuki-rb.jpeg" alt="Юки Цунода">
+            <p>Юки Цунода</p>
+          </div>
+          <div class="driver">
+            <img src="images/visa/daniel-rb.jpg" alt="Даниель Риккардо">
+            <p>Даниель Риккардо</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. Профиль команды: Williams -->
+    <div class="team-profile">
+      <div class="team-photo-container">
+        <img src="images/williams/williams.jpeg" alt="Red Bull Racing" class="team-photo">
+      </div>
+      <div class="team-info">
+        <h2>Williams</h2>
+        <p><strong>База:</strong> Гроув, Великобритания</p>
+        <p><strong>Руководитель:</strong> Джеймс Ваулз</p>
+        <p><strong>Двигатель:</strong> Mercedes</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>9</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>114</p>
+          </div>
+          <div class="stat-item">
+            <h3>Поулы</h3>
+            <p>128</p>
+          </div>
+        </div>
+      </div>
+      <div class="team-details">
+        <h3>Информация о команде</h3>
+        <p>Williams Racing – британская команда с богатой историей, основанная Фрэнком Уильямсом в 1977 году. С момента дебюта команда прославилась благодаря смелым инженерным инновациям и нестандартным решениям, завоевав множество титулов в прошлых десятилетиях. Несмотря на современные вызовы, Williams сохраняет дух традиций, упорства и постоянного поиска новых технологических решений, позволяющих оставаться конкурентоспособной. Штаб-квартира находится в Гроув, Великобритания.</p>
+        <h3>Гонщики 2024</h3>
+        <div class="drivers">
+          <div class="driver">
+            <img src="images/williams/albon-williams.jpg" alt="Алекс Албон">
+            <p>Алекс Албон</p>
+          </div>
+          <div class="driver">
+            <img src="images/williams/franco-william.jpg" alt="Франко Колапинто">
+            <p>Франко Колапинто</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. Профиль команды: Sauber -->
+    <div class="team-profile">
+      <div class="team-photo-container">
+        <img src="images/sauber/sauber.jpg" alt="Mercedes" class="team-photo">
+      </div>
+      <div class="team-info">
+        <h2>Sauber</h2>
+        <p><strong>База:</strong> Хинвил, Швейцария</p>
+        <p><strong>Руководитель:</strong> Маттиа Бинотто</p>
+        <p><strong>Двигатель:</strong> Ferrari</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Поулы</h3>
+            <p>10</p>
+          </div>
+        </div>
+      </div>
+      <div class="team-details">
+        <h3>Информация о команде</h3>
+        <p>Kick Sauber F1 Team – швейцарская команда с богатой историей, дебютировавшая в чемпионате ещё под именем Sauber. Претерпев несколько ребрендингов, коллектив сохранил верность инновациям и развитию молодых талантов, демонстрируя высокую адаптивность и техническую смекалку. Команда известна эффективным подходом к инженерным решениям и стратегическому планированию, позволяющим успешно конкурировать с мировыми лидерами. Штаб-квартира находится в Швейцарии с производственными мощностями в Великобритании.</p>
+        <h3>Гонщики 2024</h3>
+        <div class="drivers">
+          <div class="driver">
+            <img src="images/sauber/valtteri-kick.jpeg" alt="Валттери Боттас">
+            <p>Валттери Боттас</p>
+          </div>
+          <div class="driver">
+            <img src="images/sauber/zhou-kick.jpg" alt="Чжоу Гуаньюй">
+            <p>Чжоу Гуаньюй</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="newsletter">
+      <h2>Подпишитесь на новости команд</h2>
+      <form>
+        <input type="email" placeholder="Ваш email" required>
+        <button type="submit">Подписаться</button>
+      </form>
+      <p class="privacy-text">Я даю согласие на обработку своих персональных данных в целях получения рекламно-информационных рассылок в порядке, предусмотренном условиями обработки.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="about.html">О чемпионате</a>
+      <a href="news.html">Новости</a>
+      <a href="teams.html">Команды</a>
+      <a href="circuits.html">Трассы</a>
+    </div>
+    <div class="social-links">
+      <a href="https://www.facebook.com/Formula1" aria-label="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com/F1" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/f1/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/F1" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@f1" aria-label="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <p>&copy; 2024 Formula 1 Legends. Все права защищены.</p>
+  </footer>
+</body>
+</html>

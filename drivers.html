@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formula 1 | Лучшие гонщики 2024</title>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Jura&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Jura', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Russo One', sans-serif;
+    }
+    .header {
+      background-color: #1e1e1e;
+      color: #d4af37;
+      padding: 2rem;
+      text-align: center;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+    .nav {
+      display: flex;
+      justify-content: center;
+      background-color: #1e1e1e;
+      padding: 1rem;
+      gap: 2rem;
+    }
+    .nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .breadcrumbs {
+      padding: 1rem;
+      background-color: #ffffff;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .breadcrumbs a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+    .content {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .driver-profile {
+      display: flex;
+      background: white;
+      margin-bottom: 2rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      align-items: flex-start; 
+    }
+    .driver-photo {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      margin: 40px 0 40px 35px; 
+      border-radius: 4px; 
+    }
+    .driver-info {
+      padding: 2rem;
+      flex: 1;
+    }
+    .driver-info h2 {
+      color: #1e1e1e;
+      margin-top: 0;
+      border-bottom: 2px solid #d4af37;
+      padding-bottom: 0.5rem;
+    }
+    .driver-bio {
+      padding: 2rem;
+      flex: 1;
+      border-left: 1px solid #eee;
+    }
+    .driver-bio h3 {
+      color: #d4af37;
+      margin-top: 0;
+    }
+    .stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-item h3 {
+      color: #d4af37;
+      margin: 0;
+    }
+    .newsletter {
+      background: #1e1e1e;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 3rem;
+      border-radius: 4px;
+    }
+    .newsletter h2 {
+      color: #d4af37;
+    }
+    .newsletter input {
+      padding: 0.8rem;
+      width: 300px;
+      border: none;
+      margin-right: 1rem;
+      border-radius: 4px;
+    }
+    .newsletter button {
+      background: #d4af37;
+      color: #1e1e1e;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+    .newsletter button:hover {
+      background: #c9a227;
+    }
+    .privacy-text {
+      font-size: 0.8rem;
+      margin-top: 1rem;
+      color: #aaa;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .footer {
+      background: #1e1e1e;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-links a:hover {
+      color: #d4af37;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+    .social-links a:hover {
+      color: #d4af37;
+    }
+    @media (max-width: 768px) {
+      .driver-profile {
+        flex-direction: column;
+      }
+      .driver-photo {
+        width: 90%; 
+        height: auto;
+        margin: 40px auto; 
+        margin-left: auto; 
+        margin-right: auto;
+      }
+      .driver-bio {
+        border-left: none;
+        border-top: 1px solid #eee;
+      }
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>FORMULA 1</h1>
+  </header>
+
+    <nav class="nav">
+    <a href="index.html">Главная</a>
+    <a href="drivers.html">Гонщики</a>
+    <a href="teams.html">Команды</a>
+    <a href="circuits.html">Трассы</a>
+  </nav>
+
+  <div class="breadcrumbs">
+    <a href="index.html">Главная</a> > <a href="drivers.html">Гонщики</a> > <span>2024</span>
+  </div>
+  <main class="content">
+    
+     <!-- 1. Профиль гонщика: Ландо Норрис -->
+    <div class="driver-profile">
+      <img src="images/mclaren/lando-norris-mclaren.jpeg" alt="Ландо Норрис" class="driver-photo">
+      <div class="driver-info">
+        <h2>Ландо Норрис</h2>
+        <p><strong>Команда:</strong> McLaren</p>
+        <p><strong>Страна:</strong> Великобритания</p>
+        <p><strong>Дата рождения:</strong> 13 ноября 1999</p>
+        <p><strong>Номер пилота:</strong> 4</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>4</p>
+          </div>
+          <div class="stat-item">
+            <h3>Подиумы</h3>
+            <p>31</p>
+          </div>
+        </div>
+      </div>
+      <div class="driver-bio">
+        <h3>Краткая информация</h3>
+        <p>Ландо Норрис — британский автогонщик, воспитанник McLaren. Вице-чемпион Формулы-2 (2018). Дебютировал в 2019 году.</p>
+        <p>Известен своей скоростью, особенно в квалификации, и харизматичным характером. Первую победу одержал в 2024 году в Майами.</p>
+        <p><strong>Достижения:</strong> Первая победа - Гран-при Майами 2024 (McLaren). Многократный обладатель награды "Лучший гонщик дня". Самый молодой британский гонщик, поднявшийся на подиум (в то время). Поул-позиция в России 2021.</p>
+      </div>
+    </div>
+
+    <!-- 2. Профиль гонщика: Оскар Пиастри -->
+    <div class="driver-profile">
+      <img src="images/mclaren/oscar-mclaren.jpg" alt="Оскар Пиастри" class="driver-photo">
+      <div class="driver-info">
+        <h2>Оскар Пиастри</h2>
+        <p><strong>Команда:</strong> McLaren</p>
+        <p><strong>Страна:</strong> Австралия</p>
+        <p><strong>Дата рождения:</strong> 6 апреля 2001</p>
+        <p><strong>Номер пилота:</strong> 81</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>2</p>
+          </div>
+          <div class="stat-item">
+            <h3>Подиумы</h3>
+            <p>15</p>
+          </div>
+        </div>
+      </div>
+      <div class="driver-bio">
+        <h3>Краткая информация</h3>
+        <p>Оскар Пиастри — австралийский автогонщик, дебютировавший в 2023 году. Чемпион Формулы-3 (2020) и Формулы-2 (2021). Обладатель премии Autosport Rookie of the Year (2023). </p>
+        <p>Известен своей зрелостью, стабильностью и умением быстро адаптироваться. Первый подиум взял в своей дебютной гонке, первую победу - в Венгрии 2024 года.</p>
+        <p><strong>Достижения:</strong> Подиум в дебютной гонке (Бахрейн 2023, 3-й). Первая победа - Гран-при Катара 2023 (Гонка Спринт). Первая победа в основной гонке - Гран-при Венгрии 2024. Самый быстрый новичок по набору очков.</p>
+      </div>
+    </div>
+
+    <!-- 3. Профиль гонщика: Шарль Леклер -->
+    <div class="driver-profile">
+      <img src="images/ferrari/charles-leclerc.jpeg" alt="Шарль Леклер" class="driver-photo">
+      <div class="driver-info">
+        <h2>Шарль Леклер</h2>
+        <p><strong>Команда:</strong> Ferrari</p>
+        <p><strong>Страна:</strong> Монако</p>
+        <p><strong>Дата рождения:</strong> 16 октября 1997</p>
+        <p><strong>Номер пилота:</strong> 16</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>8</p>
+          </div>
+          <div class="stat-item">
+            <h3>Подиумы</h3>
+            <p>44</p>
+          </div>
+        </div>
+      </div>
+      <div class="driver-bio">
+        <h3>Краткая информация</h3>
+        <p>Шарль Леклер — монегасский автогонщик, воспитанник академии Ferrari. Обладатель премии Autosport Rookie of the Year (2018), быстро зарекомендовал себя как один из самых быстрых гонщиков сетки.</p>
+        <p>Вице-чемпион мира 2022 года</p>
+        <p><strong>Достижения:</strong> Самый молодой победитель Гран-при (18 лет), самый молодой гонщик, набравший очки в Формуле-1 (17 лет).</p>
+      </div>
+    </div>
+
+    <!-- 4. Профиль гонщика: Карлос Сайнз -->
+    <div class="driver-profile">
+      <img src="images/ferrari/carlos-ferrari.jpeg" alt="Карлос Сайнз" class="driver-photo">
+      <div class="driver-info">
+        <h2>Карлос Сайнз</h2>
+        <p><strong>Команда:</strong> Ferrari</p>
+        <p><strong>Страна:</strong>  Испания</p>
+        <p><strong>Дата рождения:</strong> 1 сентября 1994</p>
+        <p><strong>Номер пилота:</strong> 55</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>4</p>
+          </div>
+          <div class="stat-item">
+            <h3>Подиумы</h3>
+            <p>27</p>
+          </div>
+        </div>
+      </div>
+      <div class="driver-bio">
+        <h3>Краткая информация</h3>
+        <p>Карлос Сайнс-мл. — испанский автогонщик, сын двукратного чемпиона мира по ралли Карлоса Сайнса. Дебютировал в 2015 году. Известен своей стабильностью, интеллектуальным подходом к гонкам и умением бороться за позиции.</p>
+        <p>Первую победу одержал с Ferrari в 2022 году.</p>
+        <p><strong>Достижения:</strong> Первая победа - Гран-при Великобритании 2022 (Ferrari). Победа на Гран-при Сингапура 2023 (прервал доминирование Red Bull). Подиум в дебютной гонке за McLaren (Бразилия 2019).</p>
+      </div>
+    </div>
+
+    <!-- 5. Профиль гонщика: Макс Ферстаппен -->
+    <div class="driver-profile">
+      <img src="images/red-bull/max-red-bull.jpeg" alt="Max Verstappen" class="driver-photo">
+      <div class="driver-info">
+        <h2>Макс Ферстаппен</h2>
+        <p><strong>Команда:</strong> Red Bull Racing</p>
+        <p><strong>Страна:</strong> Нидерланды</p>
+        <p><strong>Дата рождения:</strong> 30 сентября 1997</p>
+        <p><strong>Номер пилота:</strong> 1</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>4</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>64</p>
+          </div>
+          <div class="stat-item">
+            <h3>Подиумы</h3>
+            <p>115</p>
+          </div>
+        </div>
+      </div>
+      <div class="driver-bio">
+        <h3>Краткая информация</h3>
+        <p>Макс Ферстаппен — нидерландский автогонщик, трёхкратный чемпион мира Формулы-1 (2021, 2022, 2023). Он дебютировал в Формуле-1 в 17 лет, став самым молодым гонщиком в истории серии.</p>
+        <p>Сын бывшего гонщика Формулы-1 Йоса Ферстаппена, известен своим агрессивным стилем и выдающейся скоростью. В сезоне 2023 года установил рекорд по количеству побед в одном сезоне (19 из 22 гонок).</p>
+        <p><strong>Достижения:</strong> Самый молодой победитель Гран-при (18 лет), самый молодой гонщик, набравший очки в Формуле-1 (17 лет).</p>
+      </div>
+    </div>
+
+    <!-- 6. Профиль гонщика: Серхио Перез -->
+    <div class="driver-profile">
+      <img src="images/red-bull/sergio-red-bull.jpeg" alt="Серхио Перез" class="driver-photo">
+      <div class="driver-info">
+        <h2>Серхио Перез</h2>
+        <p><strong>Команда:</strong> Red Bull Racing</p>
+        <p><strong>Страна:</strong> Мексика</p>
+        <p><strong>Дата рождения:</strong> 26 января 1990</p>
+        <p><strong>Номер пилота:</strong> 11</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>6</p>
+          </div>
+          <div class="stat-item">
+            <h3>Подиумы</h3>
+            <p>39</p>
+          </div>
+        </div>
+      </div>
+      <div class="driver-bio">
+        <h3>Краткая информация</h3>
+        <p>Серхио Перес — мексиканский автогонщик, дебютировавший в 2011 году. Известен под прозвищем "Король Королёвских гонок" за мастерство в сохранении шин и сильные результаты на трассах с высокой деградацией покрышек.</p>
+        <p>Вице-чемпион мира 2023 года.</p>
+        <p><strong>Достижения:</strong> Победы на "уличных" трассах (Баку - 2 раза, Сакир, Джидда, Сингапур, Монако). Первая победа - Гран-при Сахир 2020 (Racing Point). Самый успешный мексиканский гонщик в истории Ф1.</p>
+      </div>
+    </div>
+
+    <!-- 7. Профиль гонщика: Джордж Рассел -->
+    <div class="driver-profile">
+      <img src="images/mercedes/george-russell-mersedec.jpeg" alt="Джордж Рассел" class="driver-photo">
+      <div class="driver-info">
+        <h2>Джордж Рассел</h2>
+        <p><strong>Команда:</strong> Mercedes</p>
+        <p><strong>Страна:</strong> Великобритания</p>
+        <p><strong>Дата рождения:</strong> 15 февраля 1998</p>
+        <p><strong>Номер пилота:</strong> 63</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>3</p>
+          </div>
+          <div class="stat-item">
+            <h3>Подиумы</h3>
+            <p>19</p>
+          </div>
+        </div>
+      </div>
+      <div class="driver-bio">
+        <h3>Краткая информация</h3>
+        <p>Джордж Расселл — британский автогонщик, воспитанник программы Mercedes Junior. Чемпион Формулы-2 (2018). Известен впечатляющей квалификационной скоростью.</p>
+        <p>Дебютировал в 2019 году, свой первую победу одержал в 2022 году за Mercedes.</p>
+        <p><strong>Достижения:</strong> Первая победа - Гран-при Сан-Паулу 2022. Подиум в дебютной гонке за Mercedes (замена Хэмилтона, Бахрейн 2020). Поул-позиция в Венгрии 2023. Победа в гонке спринт в Бразилии (2023).</p>
+      </div>
+    </div>
+
+    <!-- 8. Профиль гонщика: Льюис Хемилтон -->
+    <div class="driver-profile">
+      <img src="images/mercedes/lewis-hamilton-mersedec.jpeg" alt="Льюис Хемилтон" class="driver-photo">
+      <div class="driver-info">
+        <h2>Льюис Хемилтон</h2>
+        <p><strong>Команда:</strong> Mercedes</p>
+        <p><strong>Страна:</strong> Великобритания</p>
+        <p><strong>Дата рождения:</strong> 7 января 1985</p>
+        <p><strong>Номер пилота:</strong> 44</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>7</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>105</p>
+          </div>
+          <div class="stat-item">
+            <h3>Подиумы</h3>
+            <p>202</p>
+          </div>
+        </div>
+      </div>
+      <div class="driver-bio">
+        <h3>Краткая информация</h3>
+        <p>Льюис Хэмилтон — британский автогонщик, семикратный чемпион мира Формулы-1 (2008, 2014, 2015, 2017, 2018, 2019, 2020), рекордсмен по количеству титулов (наравне с М. Шумахером), побед и поулов.</p>
+        <p>Дебютировал в 2007 году. Известен своей невероятной скоростью, стабильностью и мастерством в дождевых условиях.</p>
+        <p><strong>Достижения:</strong> Чемпион мира в свой дебютный сезон в McLaren (2008). Рекордное количество побед в одном сезоне (совместно с Ферстаппеном - 15). Победитель 100+ Гран-при. Первый чернокожий гонщик Ф1.</p>
+      </div>
+    </div>
+
+    <!-- 9. Профиль гонщика: Фернандо Алонсо -->
+    <div class="driver-profile">
+      <img src="images/aston-martin/alonso-aston.jpeg" alt="Фернандо Алонсо" class="driver-photo">
+      <div class="driver-info">
+        <h2>Фернандо Алонсо</h2>
+        <p><strong>Команда:</strong> Aston Martin</p>
+        <p><strong>Страна:</strong> Испания</p>
+        <p><strong>Дата рождения:</strong> 29 июля 1981</p>
+        <p><strong>Номер пилота:</strong> 14</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>2</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>32</p>
+          </div>
+          <div class="stat-item">
+            <h3>Подиумы</h3>
+            <p>106</p>
+          </div>
+        </div>
+      </div>
+      <div class="driver-bio">
+        <h3>Краткая информация</h3>
+        <p>Фернандо Алонсо — испанский автогонщик, двукратный чемпион мира Формулы-1 (2005, 2006), один из самых опытных и уважаемых гонщиков в истории. Дебютировал в 2001 году.</p>
+        <p>Известен своим невероятным гоночным мастерством, тактическим мышлением и долголетием в спорте.</p>
+        <p><strong>Достижения:</strong> Самый молодой чемпион мира на тот момент (2005). Трехкратный вице-чемпион мира (2010, 2012, 2013). Победа на легендарных 24 часах Ле-Мана (2 раза). Более 380 стартов в Ф1. Множество подиумов с Aston Martin в 2023.</p>
+      </div>
+    </div>
+
+    <!-- 10. Профиль гонщика: Лэнс Стролл -->
+    <div class="driver-profile">
+      <img src="images/aston-martin/lance-stroll-aston.jpeg" alt="Лэнс Стролл" class="driver-photo">
+      <div class="driver-info">
+        <h2>Лэнс Стролл</h2>
+        <p><strong>Команда:</strong> Aston Martin</p>
+        <p><strong>Страна:</strong> Канада</p>
+        <p><strong>Дата рождения:</strong> 29 октября 1998</p>
+        <p><strong>Номер пилота:</strong> 18</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Подиумы</h3>
+            <p>3</p>
+          </div>
+        </div>
+      </div>
+      <div class="driver-bio">
+        <h3>Краткая информация</h3>
+        <p>Лэнс Стролл — канадский автогонщик, сын владельца команды Aston Martin Лоуренса Стролла. Чемпион Европейской Формулы-3 (2016). Дебютировал в 2017 году. </p>
+        <p>Известен своей сильной скоростью в мокрых условиях (подиум в Баку 2017 года со старта с последнего ряда).</p>
+        <p><strong>Достижения:</strong> Подиум в дебютной гонке (Баку 2017, 3-й) со старта с последнего ряда. Поул-позиция в Стамбуле 2020 (в дождь). Самый молодой гонщик, стартовавший с первого ряда (в то время, Италия 2017).</p>
+      </div>
+    </div>
+
+    <!-- 11. Профиль гонщика: Пьер Гасли -->
+    <div class="driver-profile">
+      <img src="images/alpine/pierre-gasly-alpine.jpeg" alt="Пьер Гасли" class="driver-photo">
+      <div class="driver-info">
+        <h2>Пьер Гасли</h2>
+        <p><strong>Команда:</strong> Alpine</p>
+        <p><strong>Страна:</strong> Франция</p>
+        <p><strong>Дата рождения:</strong> 7 февраля 1996</p>
+        <p><strong>Номер пилота:</strong> 10</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>1</p>
+          </div>
+          <div class="stat-item">
+            <h3>Подиумы</h3>
+            <p>5</p>
+          </div>
+        </div>
+      </div>
+      <div class="driver-bio">
+        <h3>Краткая информация</h3>
+        <p>Пьер Гасли — французский автогонщик, чемпион GP2 (2016). Дебютировал в 2017 году. Известен своей атакующей манерой езды.</p>
+        <p>Одержал сенсационную победу за AlphaTauri на Гран-при Италии 2020 года.</p>
+        <p><strong>Достижения:</strong> Сенсационная победа на Гран-при Италии 2020 за AlphaTauri (первая победа команды со времен Торо Россо). Второе место в Бразилии 2019 (Red Bull).</p>
+      </div>
+    </div>
+
+    <!-- 12. Профиль гонщика: Эстебан Окон -->
+    <div class="driver-profile">
+      <img src="images/alpine/esteban-ocon-alpine.jpeg" alt="Эстебан Окон" class="driver-photo">
+      <div class="driver-info">
+        <h2>Эстебан Окон</h2>
+        <p><strong>Команда:</strong> Alpine</p>
+        <p><strong>Страна:</strong> Франция</p>
+        <p><strong>Дата рождения:</strong> 17 сентября 1996</p>
+        <p><strong>Номер пилота:</strong> 31</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>1</p>
+          </div>
+          <div class="stat-item">
+            <h3>Подиумы</h3>
+            <p>5</p>
+          </div>
+        </div>
+      </div>
+      <div class="driver-bio">
+        <h3>Краткая информация</h3>
+        <p>Эстебан Окон — французский автогонщик, чемпион серии GP3 (2015). Дебютировал в 2016 году. Известен своей стойкостью и умением набирать очки.</p>
+        <p>Одержал свою первую и пока единственную победу в Формуле-1 на Гран-при Венгрии 2021 года за Alpine.</p>
+        <p><strong>Достижения:</strong> Победа на Гран-при Венгрии 2021 (Alpine, первая победа команды со времен Renault). Постоянный набор очков в середине пелотона. Вице-чемпион Еврокубка ФР 2.0 (2014).</p>
+      </div>
+    </div>
+
+    <!-- 13. Профиль гонщика: Нико Хюлькенберг -->
+    <div class="driver-profile">
+      <img src="images/haas/nico-Haas.jpeg" alt="Нико Хюлькенберг" class="driver-photo">
+      <div class="driver-info">
+        <h2>Нико Хюлькенберг</h2>
+        <p><strong>Команда:</strong> Haas</p>
+        <p><strong>Страна:</strong> Германия</p>
+        <p><strong>Дата рождения:</strong> 19 августа 1987</p>
+        <p><strong>Номер пилота:</strong> 27</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Подиумы</h3>
+            <p>0</p>
+          </div>
+        </div>
+      </div>
+      <div class="driver-bio">
+        <h3>Краткая информация</h3>
+        <p>Нико Хюлькенберг — немецкий автогонщик, дебютировавший в 2010 году. Чемпион серии GP2 (2009). Обладатель рекорда по количеству Гран-при без подиума.</p>
+        <p>Известен своей квалификационной скоростью ("Субботний человек") и опытом. Вернулся на постоянной основе в 2023 году.</p>
+        <p><strong>Достижения:</strong> Поул-позиция в Бразилии 2010 (Williams, в дождь, дебютный сезон). Многократный обладатель поул-позиций в гонках спринт (2023-2024). Чемпион GP2 (2009). Регулярно выводил Haas в Q3 в 2023-2024.</p>
+      </div>
+    </div>
+
+    <!-- 14. Профиль гонщика: Кевин Магнуссен -->
+    <div class="driver-profile">
+      <img src="images/haas/k-mag.jpeg" alt="Кевин Магнуссен" class="driver-photo">
+      <div class="driver-info">
+        <h2>Кевин Магнуссен</h2>
+        <p><strong>Команда:</strong> Haas</p>
+        <p><strong>Страна:</strong> Дания</p>
+        <p><strong>Дата рождения:</strong> 5 октября 1992</p>
+        <p><strong>Номер пилота:</strong> 20</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Подиумы</h3>
+            <p>1</p>
+          </div>
+        </div>
+      </div>
+      <div class="driver-bio">
+        <h3>Краткая информация</h3>
+        <p>Кевин Магнуссен — датский автогонщик, сын бывшего гонщика Формулы-1 Яна Магнуссена. Дебютировал в 2014 году. Вице-чемпион Формулы-Рено 3.5 (2013).</p>
+        <p>Известен своей решительностью в борьбе на трассе. Одержал подиум в своей дебютной гонке (2 место в Австралии 2014).</p>
+        <p><strong>Достижения:</strong> Подиум в дебютной гонке (Австралия 2014, 2-й, McLaren). Поул-позиция в гонке спринт в Бразилии (2022). Вице-чемпион Формулы-Рено 3.5 (2013). Принес Haas первые очки в истории (5-й в Бахрейне 2018).</p>
+      </div>
+    </div>
+
+    <!-- 15. Профиль гонщика: Юки Цунода -->
+    <div class="driver-profile">
+      <img src="images/visa/yuki-tsunoda-rb.jpeg" alt="Юки Цунода" class="driver-photo">
+      <div class="driver-info">
+        <h2>Юки Цунода</h2>
+        <p><strong>Команда:</strong> Visa Cash App Racing Bulls</p>
+        <p><strong>Страна:</strong> Япония</p>
+        <p><strong>Дата рождения:</strong> 11 мая 2000</p>
+        <p><strong>Номер пилота:</strong> 22</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Подиумы</h3>
+            <p>0</p>
+          </div>
+        </div>
+      </div>
+      <div class="driver-bio">
+        <h3>Краткая информация</h3>
+        <p>Юки Цунода — японский автогонщик, дебютировавший в 2021 году. Воспитанник программы Red Bull Junior. Четвёртый в Формуле-2 (2020).</p>
+        <p>Известен своей агрессивной манерой езды и эмоциональностью на радио. Первые очки набрал в дебютной гонке.</p>
+        <p><strong>Достижения:</strong> Набрал очки в дебютной гонке (Бахрейн 2021, 9-й). Регулярно набирал очки в 2023-2024. Показал значительный прогресс в стабильности. Четвертый в F2 (2020).</p>
+      </div>
+    </div>
+
+    <!-- 16. Профиль гонщика: Даниель Риккардо -->
+    <div class="driver-profile">
+      <img src="images/visa/daniel-ricciardo-rb.jpeg" alt="Даниель Риккардо" class="driver-photo">
+      <div class="driver-info">
+        <h2>Даниель Риккардо</h2>
+        <p><strong>Команда:</strong> Visa Cash App Racing Bulls</p>
+        <p><strong>Страна:</strong> Австралия</p>
+        <p><strong>Дата рождения:</strong> 1 июля 1989</p>
+        <p><strong>Номер пилота:</strong> 3</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>8</p>
+          </div>
+          <div class="stat-item">
+            <h3>Подиумы</h3>
+            <p>32</p>
+          </div>
+        </div>
+      </div>
+      <div class="driver-bio">
+        <h3>Краткая информация</h3>
+        <p>Даниэль Риккардо — австралийский автогонщик, дебютировавший в 2011 году. Известен своей обаятельной улыбкой, агрессивным стилем обгонов ("нырок") и восемью победами в Формуле-1 (все за Red Bull).</p>
+        <p>Вернулся в серию в середине сезона 2023 года после перерыва.</p>
+        <p><strong>Достижения:</strong> Одна победа на Гран-при Монако (2018 - с поула). Победитель Гран-при Италии 2021 (McLaren, 1-2 с Норрисом). Вернулся в Ф1 в 2023 после перерыва. </p>
+      </div>
+    </div>
+
+    <!-- 17. Профиль гонщика: Александр Албон -->
+    <div class="driver-profile">
+      <img src="images/williams/alex-williams.jpeg" alt="Александр Албон" class="driver-photo">
+      <div class="driver-info">
+        <h2>Александр Албон</h2>
+        <p><strong>Команда:</strong> Williams</p>
+        <p><strong>Страна:</strong> Таиланд</p>
+        <p><strong>Дата рождения:</strong> 23 марта 1996</p>
+        <p><strong>Номер пилота:</strong> 23</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Подиумы</h3>
+            <p>2</p>
+          </div>
+        </div>
+      </div>
+      <div class="driver-bio">
+        <h3>Краткая информация</h3>
+        <p>Александр Албон — тайский автогонщик (выступает под флагом Таиланда), дебютировавший в 2019 году. Известен своей плавной манерой езды и сильными результатами в гонках.</p>
+        <p>После года в роли тест-пилота Red Bull вернулся в 2022 году в Williams, где стал ключевым гонщиком по набору очков.</p>
+        <p><strong>Достижения:</strong> Подиумы с Red Bull (3-й в Бахрейне 2020, 3-й в Италии 2020). Ключевой гонщик по набору очков для Williams. Регулярно выводил машину в топ-10 квалификаций в 2023-2024.</p>
+      </div>
+    </div>
+
+    <!-- 18. Профиль гонщика: Франко Колапинто -->
+    <div class="driver-profile">
+      <img src="images/williams/franco-williams.jpeg" alt="Франко Колапинто" class="driver-photo">
+      <div class="driver-info">
+        <h2>Франко Колапинто</h2>
+        <p><strong>Команда:</strong> Williams</p>
+        <p><strong>Страна:</strong> Аргентина</p>
+        <p><strong>Дата рождения:</strong> 27 мая 2003</p>
+        <p><strong>Номер пилота:</strong> 43</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Подиумы</h3>
+            <p>0</p>
+          </div>
+        </div>
+      </div>
+      <div class="driver-bio">
+        <h3>Краткая информация</h3>
+        <p>Аргентинский автогонщик, дебютировал в 2024 году. Первый аргентинец в Ф1 с 2001 года. Чемпион FRegional Oceania (2023).</p>
+        <p>Агрессивен и быстро адаптируется.</p>
+        <p><strong>Достижения:</strong> Набрал очки в своем дебютном сезоне (2024). Показал впечатляющую скорость в квалификациях на сложных трассах. Победитель Новозеландского Гран-при (2023).</p>
+      </div>
+    </div>
+
+    <!-- 19. Профиль гонщика: Чжоу Гуаньюй -->
+    <div class="driver-profile">
+      <img src="images/sauber/zhou-stake.jpeg" alt="Чжоу Гуаньюй" class="driver-photo">
+      <div class="driver-info">
+        <h2>Чжоу Гуаньюй</h2>
+        <p><strong>Команда:</strong> Kick Sauber</p>
+        <p><strong>Страна:</strong> Китай</p>
+        <p><strong>Дата рождения:</strong> 30 мая 1999</p>
+        <p><strong>Номер пилота:</strong> 24</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Подиумы</h3>
+            <p>0</p>
+          </div>
+        </div>
+      </div>
+      <div class="driver-bio">
+        <h3>Краткая информация</h3>
+        <p>Гуаньюй Чжоу — китайский автогонщик, дебютировавший в 2022 году. Третий в Формуле-2 (2021). Первый китайский гонщик в истории Формулы-1.</p>
+        <p>Известен своей аккуратностью и стабильностью. Набрал очки в своей дебютной гонке (Бахрейн 2022).</p>
+        <p><strong>Достижения:</strong> Набрал очки в дебютной гонке (Бахрейн 2022, 10-й). Регулярно финишировал в очках в 2022-2024. Третий в F2 (2021). Победитель Гран-при Макао Ф3 (2019).</p>
+      </div>
+    </div>
+
+    <!-- 20. Профиль гонщика: Вальттери Боттас -->
+    <div class="driver-profile">
+      <img src="images/sauber/bottass-stake.jpeg" alt="Вальттери Боттас" class="driver-photo">
+      <div class="driver-info">
+        <h2>Вальттери Боттас</h2>
+        <p><strong>Команда:</strong> Kick Sauber</p>
+        <p><strong>Страна:</strong> Финляндия</p>
+        <p><strong>Дата рождения:</strong> 28 августа 1989</p>
+        <p><strong>Номер пилота:</strong> 77</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Чемпионств</h3>
+            <p>0</p>
+          </div>
+          <div class="stat-item">
+            <h3>Победы</h3>
+            <p>10</p>
+          </div>
+          <div class="stat-item">
+            <h3>Подиумы</h3>
+            <p>67</p>
+          </div>
+        </div>
+      </div>
+      <div class="driver-bio">
+        <h3>Краткая информация</h3>
+        <p>Вальттери Боттас — финский автогонщик, дебютировавший в 2013 году. Неоднократный вице-чемпион в младших формулах. Известен своей стабильностью и мастерством стартов.</p>
+        <p>Выступал за Mercedes с 2017 по 2021 год, где одержал 10 побед и стал двукратным вице-чемпионом мира (2019, 2020).</p>
+        <p><strong>Достижения:</strong> 10 побед за Mercedes (2017-2021). Множество быстрых кругов. Мастер стартов ("Лучший стартер года"). Принес Sauber первый подиум в эпоху Alfa Romeo (3-й в Бахрейне 2023).</p>
+      </div>
+    </div>
+    
+ 
+    <section class="newsletter">
+      <h2>Подпишитесь на новости Формулы 1</h2>
+      <form>
+        <input type="email" placeholder="Ваш email" required>
+        <button type="submit">Подписаться</button>
+      </form>
+      <p class="privacy-text">Я даю согласие на обработку своих персональных данных в целях получения рекламно-информационных рассылок в порядке, предусмотренном условиями обработки.</p>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="about.html">О чемпионате</a>
+      <a href="news.html">Новости</a>
+      <a href="teams.html">Команды</a>
+      <a href="circuits.html">Трассы</a>
+    </div>
+    <div class="social-links">
+      <a href="https://www.facebook.com/Formula1" aria-label="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com/F1" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/f1/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/F1" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@f1" aria-label="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <p>&copy; 2024 Formula 1 Legends. Все права защищены.</p>
+  </footer>
+</body>
+</html>

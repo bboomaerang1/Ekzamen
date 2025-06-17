@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formula 1 | Трассы 2024</title>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Jura&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Jura', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Russo One', sans-serif;
+    }
+    .header {
+      background-color: #1e1e1e;
+      color: #d4af37;
+      padding: 2rem;
+      text-align: center;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+    .nav {
+      display: flex;
+      justify-content: center;
+      background-color: #1e1e1e;
+      padding: 1rem;
+      gap: 2rem;
+    }
+    .nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .breadcrumbs {
+      padding: 1rem;
+      background-color: #ffffff;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .breadcrumbs a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+    .content {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .circuit-card {
+      display: flex;
+      background: white;
+      margin-bottom: 2rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      overflow: hidden; 
+    }
+    .circuit-image {
+      width: 350px;
+      height: 500px;
+      object-fit: cover;
+      margin: 40px 0 40px 35px; 
+      border-radius: 4px;
+    }
+    .circuit-info {
+      padding: 2rem;
+      flex: 1;
+    }
+    .circuit-info h2 {
+      color: #1e1e1e;
+      margin-top: 0;
+      border-bottom: 2px solid #d4af37;
+      padding-bottom: 0.5rem;
+    }
+    .circuit-details {
+      padding: 2rem;
+      flex: 1;
+      border-left: 1px solid #eee;
+    }
+    .circuit-details h3 {
+      color: #d4af37;
+      margin-top: 0;
+    }
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .stat-item {
+      min-width: 120px;
+    }
+    .stat-item h3 {
+      color: #d4af37;
+      margin: 0 0 0.3rem 0;
+      font-size: 0.9rem;
+    }
+    .stat-item p {
+      margin: 0;
+      font-weight: bold;
+    }
+    .lap-record {
+      background: #f5f5f5;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-top: 1rem;
+    }
+    .newsletter {
+      background: #1e1e1e;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 3rem;
+      border-radius: 4px;
+    }
+    .newsletter h2 {
+      color: #d4af37;
+    }
+    .newsletter input {
+      padding: 0.8rem;
+      width: 300px;
+      border: none;
+      margin-right: 1rem;
+      border-radius: 4px;
+    }
+    .newsletter button {
+      background: #d4af37;
+      color: #1e1e1e;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+    .newsletter button:hover {
+      background: #c9a227;
+    }
+    .privacy-text {
+      font-size: 0.8rem;
+      margin-top: 1rem;
+      color: #aaa;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .footer {
+      background: #1e1e1e;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-links a:hover {
+      color: #d4af37;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+    .social-links a:hover {
+      color: #d4af37;
+    }
+    .map-link {
+      display: inline-block;
+      margin-top: 1rem;
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .race-date {
+      color: #d4af37;
+      font-weight: bold;
+      margin: 0.5rem 0;
+    }
+    @media (max-width: 768px) {
+      .circuit-card {
+        flex-direction: column;
+      }
+      .circuit-image {
+        width: calc(100% - 70px); 
+        height: auto; 
+        margin: 20px 35px; 
+      }
+      .circuit-details {
+        border-left: none;
+        border-top: 1px solid #eee;
+      }
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>FORMULA 1</h1>
+  </header>
+  
+  <nav class="nav">
+    <a href="index.html">Главная</a>
+    <a href="drivers.html">Гонщики</a>
+    <a href="teams.html">Команды</a>
+    <a href="circuits.html">Трассы</a>
+  </nav>
+  
+  <div class="breadcrumbs">
+    <a href="index.html">Главная</a> > <a href="circuits.html">Трассы</a> > <span>2024</span>
+  </div>
+  <main class="content">
+
+    <!-- 1. Трасса: Бахрейн -->
+    <div class="circuit-card">
+      <img src="images/tracks/bahrain.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Международный автодром Бахрейна</h2>
+        <p><strong>Местоположение:</strong> Сахир, Бахрейн</p>
+        <p><strong>Длина круга:</strong> 5.412 км</p>
+        <p><strong>Количество поворотов:</strong> 15</p>
+        <div class="race-date">Дата гонки: 2 марта 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>2004</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>57</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>308.484 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:31.447</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3Mc9w5" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Ночная трасса в пустыне с хорошими возможностями для обгонов. Комбинация быстрых прямых и технических поворотов требует баланса между скоростью и прижимной силой. Песчаные бури могут влиять на сцепление.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Макс Ферстаппен (Red Bull)</p>
+          <p><strong>Время:</strong> 1:29.708 (2023)</p>
+          <p><strong>Средняя скорость:</strong> 208.8 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Трасса: Джидда -->
+    <div class="circuit-card">
+      <img src="images/tracks/jeddah.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Городская трасса Джидда</h2>
+        <p><strong>Местоположение:</strong> Джидда, Саудовская Аравия</p>
+        <p><strong>Длина круга:</strong> 6.174 км</p>
+        <p><strong>Количество поворотов:</strong> 27</p>
+        <div class="race-date">Дата гонки: 9 марта 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>2021</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>50</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>308.7 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:30.734</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McATK" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Самая быстрая уличная трасса в календаре с высокоскоростными секциями вдоль побережья Красного моря. Опасные барьеры требуют точности пилотирования, а освещение создаёт уникальные визуальные эффекты.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Серхио Перес (Red Bull)</p>
+          <p><strong>Время:</strong> 1:28.265 (2023)</p>
+          <p><strong>Средняя скорость:</strong> 249.6 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Трасса: Мельбурн -->
+    <div class="circuit-card">
+      <img src="images/tracks/albert.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Альберт-Парк</h2>
+        <p><strong>Местоположение:</strong> Мельбурн, Австралия</p>
+        <p><strong>Длина круга:</strong> 5.278 км</p>
+        <p><strong>Количество поворотов:</strong> 14</p>
+        <div class="race-date">Дата гонки: 24 марта 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>1996</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>58</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>305.892 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:20.235</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McAiV" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Уличная трасса в парке Альберт-Парк с быстрыми шиканами. Требует агрессивного стиля вождения и хорошей механической сцепки. Изменчивая погода часто влияет на стратегию.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Макс Ферстаппен (Red Bull)</p>
+          <p><strong>Время:</strong> 1:16.732 (2023)</p>
+          <p><strong>Средняя скорость:</strong> 228.4 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Трасса: Судзука -->
+    <div class="circuit-card">
+      <img src="images/tracks/suzuka.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Судзука</h2>
+        <p><strong>Местоположение:</strong> Судзука, Япония</p>
+        <p><strong>Длина круга:</strong> 5.807 км</p>
+        <p><strong>Количество поворотов:</strong> 18</p>
+        <div class="race-date">Дата гонки: 7 апреля 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>1966</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>53</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>307.771 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:30.983</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McAss" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Легендарная фигурная восьмёрка с уникальными секциями вроде поворота "130R". Технически сложная трасса, где важна аэродинамическая эффективность и баланс в высокоскоростных поворотах.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Макс Ферстаппен (Red Bull)</p>
+          <p><strong>Время:</strong> 1:28.877 (2023)</p>
+          <p><strong>Средняя скорость:</strong> 231.2 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Трасса: Шанхай -->
+    <div class="circuit-card">
+      <img src="images/tracks/china.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Международный автодром Шанхая</h2>
+        <p><strong>Местоположение:</strong> Шанхай, Китай</p>
+        <p><strong>Длина круга:</strong> 5.451 км</p>
+        <p><strong>Количество поворотов:</strong> 16</p>
+        <div class="race-date">Дата гонки: 21 апреля 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>2004</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>56</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>305.256 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:32.238</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McAui" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Масштабная трасса в форме иероглифа "Шан" с длинной прямой. Уникальные повороты с расширяющейся траекторией. Возвращение после долгого перерыва.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Льюис Хэмилтон (Mercedes)</p>
+          <p><strong>Время:</strong> 1:31.095 (2019)</p>
+          <p><strong>Средняя скорость:</strong> 208.4 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Трасса: Майами -->
+    <div class="circuit-card">
+      <img src="images/tracks/miami.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Международный автодром Майами</h2>
+        <p><strong>Местоположение:</strong> Майами, США</p>
+        <p><strong>Длина круга:</strong> 5.412 км</p>
+        <p><strong>Количество поворотов:</strong> 19</p>
+        <div class="race-date">Дата гонки: 5 мая 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>2022</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>57</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>308.484 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:29.708</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McAvu" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Уличная трасса вокруг стадиона Hard Rock с искусственными неровностями. Сочетание медленных секций в стадионе и быстрых прямых вдоль залива. Высокие температуры влияют на износ резины.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Серхио Перес (Red Bull)</p>
+          <p><strong>Время:</strong> 1:26.841 (2023)</p>
+          <p><strong>Средняя скорость:</strong> 199.5 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Трасса: Имола -->
+    <div class="circuit-card">
+      <img src="images/tracks/imola.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Автодром Энцо и Дино Феррари</h2>
+        <p><strong>Местоположение:</strong> Имола, Италия</p>
+        <p><strong>Длина круга:</strong> 4.909 км</p>
+        <p><strong>Количество поворотов:</strong> 19</p>
+        <div class="race-date">Дата гонки: 19 мая 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>2020</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>63</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>309.267 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:15.484</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McB5D" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Историческая трасса в предгорьях Апеннин с быстрыми извилистыми секциями. Требует точного управления дросселем и позднего торможения. Дожди часто делают гонку непредсказуемой.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Макс Ферстаппен (Red Bull)</p>
+          <p><strong>Время:</strong> 1:14.746 (2022)</p>
+          <p><strong>Средняя скорость:</strong> 222.8 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. Трасса: Монако  -->
+    <div class="circuit-card">
+      <img src="images/tracks/monaco.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Городская трасса Монте-Карло</h2>
+        <p><strong>Местоположение:</strong> Монте-Карло, Монако</p>
+        <p><strong>Длина круга:</strong> 3.337 км</p>
+        <p><strong>Количество поворотов:</strong> 19</p>
+        <div class="race-date">Дата гонки: 26 мая 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>1929</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>78</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>260.286 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:12.909</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3Maupa" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Знаменитая узкая уличная трасса с барьерами в сантиметрах от болидов. Требует абсолютной точности и идеальной работы подвески. Обгоны крайне затруднены, квалификация решает всё.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Льюис Хэмилтон (Mercedes)</p>
+          <p><strong>Время:</strong> 1:10.166 (2021)</p>
+          <p><strong>Средняя скорость:</strong> 160.2 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. Трасса: Монреаль -->
+    <div class="circuit-card">
+      <img src="images/tracks/canada.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Автодром имени Жиля Вильнева</h2>
+        <p><strong>Местоположение:</strong> Монреаль, Канада</p>
+        <p><strong>Длина круга:</strong> 4.361 км</p>
+        <p><strong>Количество поворотов:</strong> 15</p>
+        <div class="race-date">Дата гонки: 9 июня 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>1978</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>70</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>305.27 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:13.078</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McBAB" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Островная трасса со стенами "чемпионов" и "убийц". Сочетание длинных прямых и медленных шпилек создаёт идеальные условия для обгонов. Тормоза испытывают экстремальные нагрузки.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Валттери Боттас (Mercedes)</p>
+          <p><strong>Время:</strong> 1:10.240 (2019)</p>
+          <p><strong>Средняя скорость:</strong> 210.6 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. Трасса: Барселона -->
+    <div class="circuit-card">
+      <img src="images/tracks/catalunya.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Барселона-Каталунья</h2>
+        <p><strong>Местоположение:</strong> Монмело, Испания</p>
+        <p><strong>Длина круга:</strong> 4.657 км</p>
+        <p><strong>Количество поворотов:</strong> 14</p>
+        <div class="race-date">Дата гонки: 23 июня 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>1991</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>66</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>307.362 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:16.330</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McBCZ" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Универсальная трасса для тестов с разнообразными поворотами. Требует сбалансированного болида, хорошо работающего как в быстрых, так и в медленных секциях. Высокие температуры влияют на деградацию резины.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Макс Ферстаппен (Red Bull)</p>
+          <p><strong>Время:</strong> 1:12.272 (2023)</p>
+          <p><strong>Средняя скорость:</strong> 211.8 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11. Трасса: Ред Булл Ринг -->
+    <div class="circuit-card">
+      <img src="images/tracks/austria.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Ред Булл Ринг</h2>
+        <p><strong>Местоположение:</strong> Шпильберг, Австрия</p>
+        <p><strong>Длина круга:</strong> 4.318 км</p>
+        <p><strong>Количество поворотов:</strong> 10</p>
+        <div class="race-date">Дата гонки: 30 июня 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>1970</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>71</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>306.578 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:05.619</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McBFn" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Горная трасса с перепадом высот и ограниченными возможностями для обгона. Короткий круг означает, что машины постоянно находятся под давлением. Агрессивная езда по кербам критически важна.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Карлос Сайнс (Ferrari)</p>
+          <p><strong>Время:</strong> 1:04.391 (2022)</p>
+          <p><strong>Средняя скорость:</strong> 250.4 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12. Трасса: Сильверстоун -->
+    <div class="circuit-card">
+      <img src="images/tracks/silverstone.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Сильверстоун</h2>
+        <p><strong>Местоположение:</strong> Силвестоун, Великобритания</p>
+        <p><strong>Длина круга:</strong> 5.891 км</p>
+        <p><strong>Количество поворотов:</strong> 20</p>
+        <div class="race-date">Дата гонки: 7 июля 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>1950</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>52</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>306.332 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:27.097</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McBHD" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Историческая высокоскоростная трасса с плавными радиусами. Знаменитые повороты "Копс" и "Беккетс" требуют смелости и точности. Английская погода часто вносит коррективы.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Макс Ферстаппен (Red Bull)</p>
+          <p><strong>Время:</strong> 1:26.720 (2023)</p>
+          <p><strong>Средняя скорость:</strong> 246.8 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 13. Трасса: Хунгароринг -->
+    <div class="circuit-card">
+      <img src="images/tracks/hungarorinh.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Хунгароринг</h2>
+        <p><strong>Местоположение:</strong> Будапешт, Венгрия</p>
+        <p><strong>Длина круга:</strong> 4.381 км</p>
+        <p><strong>Количество поворотов:</strong> 14</p>
+        <div class="race-date">Дата гонки: 21 июля 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>1986</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>70</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>306.67 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:16.627</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McBL7" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>"Трасса без дыхания" с постоянными поворотами. Технически сложная конфигурация, где важна прижимная сила и баланс. Обгоны затруднены, стратегия пит-стопов часто решает исход.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Льюис Хэмилтон (Mercedes)</p>
+          <p><strong>Время:</strong> 1:16.609 (2020)</p>
+          <p><strong>Средняя скорость:</strong> 189.4 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14. Трасса: Спа-Франкоршам -->
+    <div class="circuit-card">
+      <img src="images/tracks/spa.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Спа-Франкоршам</h2>
+        <p><strong>Местоположение:</strong> Спа, Бельгия</p>
+        <p><strong>Длина круга:</strong> 7.004 км</p>
+        <p><strong>Количество поворотов:</strong> 20</p>
+        <div class="race-date">Дата гонки: 28 июля 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>1950</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>44</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>308.176 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:46.286</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McBWJ" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Самая длинная трасса календаря с перепадом высот. Знаменитый "Эо-Руж" и "Кемадес" требуют мужества. Погода может меняться на разных участках трассы.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Льюис Хэмилтон (Mercedes)</p>
+          <p><strong>Время:</strong> 1:41.252 (2020)</p>
+          <p><strong>Средняя скорость:</strong> 247.6 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15. Трасса: Зандворт -->
+    <div class="circuit-card">
+      <img src="images/tracks/zandvoort.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Зандворт</h2>
+        <p><strong>Местоположение:</strong> Зандворт, Нидерланды</p>
+        <p><strong>Длина круга:</strong> 4.259 км</p>
+        <p><strong>Количество поворотов:</strong> 14</p>
+        <div class="race-date">Дата гонки: 25 августа 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>1930</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>72</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>306.648 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:11.097</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McBYd" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Прибрежная трасса в дюнах с бандированными поворотами. Особый профиль трека требует уникальных настроек подвески. Поддержка оранжевой армии создаёт уникальную атмосферу.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Ландо Норрис (McLaren)</p>
+          <p><strong>Время:</strong> 1:10.567 (2023)</p>
+          <p><strong>Средняя скорость:</strong> 214.2 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 16. Трасса: Монца -->
+    <div class="circuit-card">
+      <img src="images/tracks/monza.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Монца</h2>
+        <p><strong>Местоположение:</strong> Монца, Италия</p>
+        <p><strong>Длина круга:</strong> 5.793 км</p>
+        <p><strong>Количество поворотов:</strong> 11</p>
+        <div class="race-date">Дата гонки: 1 сентября 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>1921</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>53</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>307.029 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:21.046</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McBb2" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>"Храм скорости" с длинными прямыми и резкими шиканами. Требует минимального прижима и мощного двигателя. Исторические повороты "Параболика" и "Курва Гранде".</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Карлос Сайнс (Ferrari)</p>
+          <p><strong>Время:</strong> 1:20.294 (2023)</p>
+          <p><strong>Средняя скорость:</strong> 264.4 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 17. Трасса: Баку -->
+    <div class="circuit-card">
+      <img src="images/tracks/baku.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Городская трасса Баку</h2>
+        <p><strong>Местоположение:</strong> Баку, Азербайджан </p>
+        <p><strong>Длина круга:</strong> 6.003 км</p>
+        <p><strong>Количество поворотов:</strong> 20</p>
+        <div class="race-date">Дата гонки: 15 сентября 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>2016</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>51</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>306.153 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:43.009</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McBck" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Быстрая уличная трасса вдоль Каспийского моря с узким участком в старом городе. Длинная прямая создаёт идеальные условия для обгонов. Непредсказуемая гонка с частыми авариями.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Шарль Леклер (Ferrari)</p>
+          <p><strong>Время:</strong> 1:40.203 (2023)</p>
+          <p><strong>Средняя скорость:</strong> 210.8 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 18. Трасса: Марина-Бей -->
+    <div class="circuit-card">
+      <img src="images/tracks/singaporu.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Марина-Бей</h2>
+        <p><strong>Местоположение:</strong> Сингапур</p>
+        <p><strong>Длина круга:</strong> 4.940 км</p>
+        <p><strong>Количество поворотов:</strong> 19</p>
+        <div class="race-date">Дата гонки: 22 сентября 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>2008</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>62</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>306.28 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:35.867</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McBf2" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Самая сложная ночная трасса с 19 поворотами. Высокая влажность и барьеры в сантиметрах от болидов. Физически изматывающая гонка для пилотов.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Льюис Хэмилтон (Mercedes)</p>
+          <p><strong>Время:</strong> 1:35.867 (2023)</p>
+          <p><strong>Средняя скорость:</strong> 170.2 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 19. Трасса: Трасса Америк -->
+    <div class="circuit-card">
+      <img src="images/tracks/texas.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Трасса Америк</h2>
+        <p><strong>Местоположение:</strong> Остин, США</p>
+        <p><strong>Длина круга:</strong> 5.513 км</p>
+        <p><strong>Количество поворотов:</strong> 20</p>
+        <div class="race-date">Дата гонки: 20 октября 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>2012</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>56</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>308.728 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:36.169</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McBjo" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Современная трасса с сектором в стиле классических европейских трасс. Перепад высот и комбинированные повороты. Знаменитые "Эски" требуют точной работы рулём.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Шарль Леклер (Ferrari)</p>
+          <p><strong>Время:</strong> 1:34.723 (2023)</p>
+          <p><strong>Средняя скорость:</strong> 206.4 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 20. Трасса: Автодром имени братьев Родригес -->
+    <div class="circuit-card">
+      <img src="images/tracks/mexico.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Автодром имени братьев Родригес</h2>
+        <p><strong>Местоположение:</strong> Мехико, Мексика</p>
+        <p><strong>Длина круга:</strong> 4.304 км</p>
+        <p><strong>Количество поворотов:</strong> 17</p>
+        <div class="race-date">Дата гонки: 27 октября 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>2021</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>71</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>305.584 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:17.774</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McBoU" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Высокогорная трасса (2285 м) с разреженным воздухом. Моторы теряют мощность, тормоза перегреваются. Уникальная атмосфера на трибунах Форсо Соль.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Фернандо Алонсо (Aston Martin)</p>
+          <p><strong>Время:</strong> 1:17.166 (2023)</p>
+          <p><strong>Средняя скорость:</strong> 190.8 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 21. Трасса: Интерлагос -->
+    <div class="circuit-card">
+      <img src="images/tracks/san Paulo.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Интерлагос</h2>
+        <p><strong>Местоположение:</strong> Сан-Паулу, Бразилия</p>
+        <p><strong>Длина круга:</strong> 4.309 км</p>
+        <p><strong>Количество поворотов:</strong> 15</p>
+        <div class="race-date">Дата гонки: 3 ноября 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>1972</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>71</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>305.939 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:10.540</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McBpt" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Историческая трасса с перепадом высот и знаменитым "Сектором Сенны". Непредсказуемая погода и захватывающие гонки. Требует хорошей механической сцепки.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Кевин Магнуссен (Haas)</p>
+          <p><strong>Время:</strong> 1:10.540 (2022)</p>
+          <p><strong>Средняя скорость:</strong> 221.6 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 22. Трасса: Городская трасса Лас-Вегас -->
+    <div class="circuit-card">
+      <img src="images/tracks/las-vegas.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Городская трасса Лас-Вегас</h2>
+        <p><strong>Местоположение:</strong> Лас-Вегас, США</p>
+        <p><strong>Длина круга:</strong> 6.201 км</p>
+        <p><strong>Количество поворотов:</strong> 17</p>
+        <div class="race-date">Дата гонки: 23 ноября 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>2023</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>50</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>310.05 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:35.490</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McBtT" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Ночная уличная трасса на Стрипе с уникальной атмосферой. Длинные прямые вдоль казино чередуются с техническими секциями. Низкие температуры влияют на работу резины.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Шарль Леклер (Ferrari)</p>
+          <p><strong>Время:</strong> 1:32.726 (2023)</p>
+          <p><strong>Средняя скорость:</strong> 218.4 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 23. Трасса: Международный автодром Лусаил -->
+    <div class="circuit-card">
+      <img src="images/tracks/losail.jpeg" alt="Международный автодром Бахрейна" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Международный автодром Лусаил</h2>
+        <p><strong>Местоположение:</strong> Лусаил, Катар</p>
+        <p><strong>Длина круга:</strong> 5.419 км</p>
+        <p><strong>Количество поворотов:</strong> 16</p>
+        <div class="race-date">Дата гонки: 1 декабря 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>2021</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>57</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>308.883 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:24.319</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McC79" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Современная трасса в пустыне с быстрыми извилистыми секциями. Абразивное покрытие и песчаные бури. Требует выносливости от пилотов и надёжности от машин.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Макс Ферстаппен (Red Bull)</p>
+          <p><strong>Время:</strong> 1:23.778 (2023)</p>
+          <p><strong>Средняя скорость:</strong> 228.2 км/ч</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 24. Трасса: Яс Марина -->
+    <div class="circuit-card">
+      <img src="images/tracks/abu-dhabi.jpeg" alt="Автодром Монца" class="circuit-image">
+      <div class="circuit-info">
+        <h2>Яс Марина</h2>
+        <p><strong>Местоположение:</strong> Абу-Даби, ОАЭ</p>
+        <p><strong>Длина круга:</strong> 5.281 км</p>
+        <p><strong>Количество поворотов:</strong> 16</p>
+        <div class="race-date">Дата гонки: 8 декабря 2024</div>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>Первый Гран-при</h3>
+            <p>2009</p>
+          </div>
+          <div class="stat-item">
+            <h3>Кругов в гонке</h3>
+            <p>58</p>
+          </div>
+          <div class="stat-item">
+            <h3>Дистанция гонки</h3>
+            <p>306.298 км</p>
+          </div>
+          <div class="stat-item">
+            <h3>Рекорд круга</h3>
+            <p>1:26.103</p>
+          </div>
+        </div>
+        <a href="https://clck.ru/3McC9B" class="map-link">Посмотреть на карте →</a>
+      </div>
+      <div class="circuit-details">
+        <h3>Особенности трассы</h3>
+        <p>Сумеречная гонка на искусственном острове с уникальным отелем. Технические секции под мостами и длинная прямая. Часто решающая гонка чемпионата.</p>
+        <div class="lap-record">
+          <h3>Рекорд круга (квалификация)</h3>
+          <p><strong>Пилот:</strong> Макс Ферстаппен (Red Bull)</p>
+          <p><strong>Время:</strong> 1:23.824 (2023)</p>
+          <p><strong>Средняя скорость:</strong> 264.4 км/ч</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="newsletter">
+      <h2>Подпишитесь на новости Формулы 1</h2>
+      <form>
+        <input type="email" placeholder="Ваш email" required>
+        <button type="submit">Подписаться</button>
+      </form>
+      <p class="privacy-text">Я даю согласие на обработку своих персональных данных в целях получения рекламно-информационных рассылок в порядке, предусмотренном условиями обработки.</p>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="about.html">О чемпионате</a>
+      <a href="news.html">Новости</a>
+      <a href="teams.html">Команды</a>
+      <a href="circuits.html">Трассы</a>
+    </div>
+    <div class="social-links">
+      <a href="https://www.facebook.com/Formula1" aria-label="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com/F1" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/f1/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/F1" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@f1" aria-label="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <p>&copy; 2024 Formula 1 Legends. Все права защищены.</p>
+  </footer>
+</body>
+</html>
